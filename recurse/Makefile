@@ -22,9 +22,9 @@ LIBS =
 .PHONY: clean
 
 $(EXE): $(OBJS)
-        $(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
+	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
 
 %.o: %.S
-        $(CC) -c $(CFLAGS) $< -o $@
+	$(CC) -c $(CFLAGS) $< -o $@
 clean:
-        rm -f $(OBJS) $(EXE)
+	rm -f $(OBJS) $(EXE)
