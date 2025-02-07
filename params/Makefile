@@ -10,7 +10,7 @@
 # Run make clean to clean objects
 
 CC = gcc
-OBJS = params_in.o main.o
+OBJS = main.o
 WARN = -Wall -Wextra -Wformat-security
 DEBUG = -g
 CFLAGS = -I. -std=gnu17 $(DEBUG) $(WARN) -O0 -marm
@@ -26,4 +26,4 @@ parmsout: $(OBJS)
 %.o: %.S
 	$(CC) -c $(CFLAGS) $< -o $@
 clean:
-	rm -f $(OBJS) $(EXE)
+	rm -f $(OBJS) params_in.o params_out.o parmsin parmsout
