@@ -35,8 +35,8 @@ main:
 
 	ldr r0, =printfmt	// print with 5 parameters
 	mov r1, 11 		// .
-	ldr r2, 22              //
-	ldr r3, 33              //
+	mov r2, 22              //
+	mov r3, 33              //
 	mov r4, 44		//
 	str r4, [sp, OARG5]	//	
 	mov r4, 55		//
