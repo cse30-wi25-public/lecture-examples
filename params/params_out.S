@@ -22,9 +22,11 @@ printfmt: .string "6 parms  %d %d %d %d %d\n"
         .equ FP_OFFSET, 28            // (#regs pushed -1) * 4 is distance from sp
         .equ EXIT_SUCCESS, 0         // return success (used by main)
         .equ EXIT_FAILURE, 1         // return failure (used by main)
-
+	.equ OUT5, FP_OFFSET + 4
+	.equ OUT6, OUT5 + 4
 	.equ OARG5, 0
 	.equ OARG6, OARG5+4
+	.equ FRMADD, OUT6 - FP_OFFSET
 
 	// example passing 6 parameters to a function
 
@@ -32,6 +34,7 @@ main:
         // function prologue
         push {r4-r9, fp, lr}
 	add fp, sp, FP_OFFSET
+
 
 	ldr r0, =printfmt	// print with 5 parameters
 	mov r1, 11 		// .
