@@ -10,7 +10,7 @@
 # Run make clean to clean objects
 
 CC = gcc
-OBJS = main.o
+OBJS = main.o params_in.o params_out.o
 WARN = -Wall -Wextra -Wformat-security
 DEBUG = -g
 CFLAGS = -I. -std=gnu17 $(DEBUG) $(WARN) -O0 -marm
