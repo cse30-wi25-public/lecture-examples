@@ -11,7 +11,7 @@
         // .equ                      // file level definitions
         // .bss                      // uncomment if needed
         .data                     // uncomment if needed
-printfmt: .string "The %d paramenter is %d\n"	 
+printfmt: .string "The %d-th paramenter is %d\n"	 
         // .section .rodata          // uncomment if needed
 
 
@@ -34,11 +34,12 @@ params:
 	ldr r0, =printfmt	// print the 5th paramenter
 	mov r1, 5		// .
 	ldr r2, [fp, IARG5]	// .
-	bl printf
+	bl printf		// .
+
 	ldr r0, =printfmt	// print the 6th paramenter
 	mov r1, 6		// .
 	ldr r2, [fp, IARG6]	// .
-	bl printf
+	bl printf		// .
 
 	sub sp, fp, FP_OFFSET
         pop {r4-r9, fp, lr}

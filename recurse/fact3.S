@@ -23,7 +23,7 @@
         .equ EXIT_FAILURE, 1         // return failure (used by main)
 fact:
         // function prologue
-        push {r3-r4, fp, lr}
+        push {r4-r5, fp, lr}
         cmp r0, 1          // if (n > 1) {
         ble .Lret_one      // .
         mov r4, r0         //     r4 <= r0/n
@@ -33,7 +33,7 @@ fact:
         b .Lend            // }else{
 .Lret_one: mov r0, #1       //     r0/n <= 1
 .Lend:                      // }
-        pop {r3-r4, fp, lr}
+        pop {r4-r5, fp, lr}
         bx lr              // return(r0)
 
 
