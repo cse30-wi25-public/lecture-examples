@@ -3,5 +3,5 @@
 
 extern void params(int, int, int, int, int, int);
 int main(){
-  params(1, 2, 3, 4, 5, 6);
+  params(101, 202, 303, 404, 505, 606);
 }

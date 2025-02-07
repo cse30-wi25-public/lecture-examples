@@ -10,8 +10,7 @@
 # Run make clean to clean objects
 
 CC = gcc
-EXE = parms
-OBJS = params.o main.o
+OBJS = params_in.o main.o
 WARN = -Wall -Wextra -Wformat-security
 DEBUG = -g
 CFLAGS = -I. -std=gnu17 $(DEBUG) $(WARN) -O0 -marm
@@ -19,8 +18,10 @@ LIBS =
 
 .PHONY: clean
 
-$(EXE): $(OBJS)
-	$(CC) $(CFLAGS) -o $@ $(OBJS) $(LIBS)
+parmsin: $(OBJS)
+	$(CC) $(CFLAGS) -o $@  params_in.o main.o $(LIBS)
+parmsout: $(OBJS)
+	$(CC) $(CFLAGS) -o $@  params_out.o $(LIBS)
 
 %.o: %.S
 	$(CC) -c $(CFLAGS) $< -o $@
