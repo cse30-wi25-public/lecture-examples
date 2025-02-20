@@ -10,8 +10,8 @@
 # Run make clean to clean objects
 
 CC = gcc
-EXE = nested
-OBJS = sum.o sumsquare1.o main.o
+EXE = sumit
+OBJS = sum.o main.o
 WARN = -Wall -Wextra -Wformat-security
 DEBUG = -g
 CFLAGS = -I. -std=gnu17 $(DEBUG) $(WARN) -O0 -marm
