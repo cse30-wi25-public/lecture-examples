@@ -11,7 +11,7 @@
 
 CC = gcc
 EXE = ./a.out
-OBJS = sumfunc.o main.o
+OBJS = sum.o main.o
 WARN = -Wall -Wextra -Wformat-security
 DEBUG = -g
 CFLAGS = -marm -I. -std=gnu17 $(DEBUG) $(WARN) -O0
