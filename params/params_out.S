@@ -11,7 +11,8 @@
         // .equ                      // file level definitions
         // .bss                      // uncomment if needed
         .data                     // uncomment if needed
-printfmt: .string "6 parms  %d %d %d %d %d\n"	 
+printinfo: .string "printf(\"6 parms %%d %%d %%d %%d %%d\\n\", 11, 22, 33, 44, 55)\n"
+printfmt: .string "6 parms  %d %d %d %d %d\n"    
         // .section .rodata          // uncomment if needed
 
 
@@ -22,31 +23,33 @@ printfmt: .string "6 parms  %d %d %d %d %d\n"
         .equ FP_OFFSET, 28            // (#regs pushed -1) * 4 is distance from sp
         .equ EXIT_SUCCESS, 0         // return success (used by main)
         .equ EXIT_FAILURE, 1         // return failure (used by main)
-	.equ OUT5, FP_OFFSET + 4
-	.equ OUT6, OUT5 + 4
-	.equ OARG5, 0
-	.equ OARG6, OARG5+4
-	.equ FRMADD, OUT6 - FP_OFFSET
+        .equ OUT5, FP_OFFSET + 4
+        .equ OUT6, OUT5 + 4
+        .equ OARG5, 0
+        .equ OARG6, OARG5+4
+        .equ FRMADD, OUT6 - FP_OFFSET
 
-	// example passing 6 parameters to a function
+        // example passing 6 parameters to a function
 
 main:
         // function prologue
         push {r4-r9, fp, lr}
-	add fp, sp, FP_OFFSET
+        add fp, sp, FP_OFFSET
 
+        ldr r0, =printinfo      //
+        bl  printf
 
-	ldr r0, =printfmt	// print with 5 parameters
-	mov r1, 11 		// .
-	mov r2, 22              //
-	mov r3, 33              //
-	mov r4, 44		//
-	str r4, [sp, OARG5]	//	
-	mov r4, 55		//
-	str r4, [sp, OARG6]	//	
-	bl printf		// .
+        ldr r0, =printfmt       // print with 5 parameters
+        mov r1, 11              // .
+        mov r2, 22              //
+        mov r3, 33              //
+        mov r4, 44              //
+        str r4, [sp, OARG5]     //
+        mov r4, 55              //
+        str r4, [sp, OARG6]     //
+        bl printf               // .
 
-	sub sp, fp, FP_OFFSET
+        sub sp, fp, FP_OFFSET
         pop {r4-r9, fp, lr}
         bx lr              // return(r0)
 
@@ -59,3 +62,4 @@ main:
         // file footer
         .section .note.GNU-stack, "", %progbits // stack/data non-exec
 .end
+
