@@ -1,4 +1,4 @@
- We provide a phony target clean to rm all the .o files
+#  We provide a phony target clean to rm all the .o files
 # 
 # Run make to run with warnings
 # Run make WARN= to run without warnings
